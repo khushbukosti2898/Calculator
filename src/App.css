@@ -36,6 +36,10 @@
     transform: rotate(360deg);
   }
 }
+/* h1{
+  background-color: aqua;
+  
+}
 input{ 
   margin-top: 10px;
   width: 300px; 
@@ -48,6 +52,7 @@ text-align: right;
 
 Button{ 
   width: 100px; 
+  margin: 5px;
   background: #61dafb; 
   border: 1px solid #222; 
   padding: 10px 20px; 
@@ -56,5 +61,21 @@ Button{
   text-decoration: none; 
   display: inline-block; 
   font-size: 16px; 
-} 
-  
+}  */
+
+button{
+  width: 100%;
+  margin: 2px;
+}
+
+.borderwindow{
+  margin-top: 30px;
+  border: 3px double ;
+  box-shadow: 15px 15px gray;
+  border-radius: 10px;
+}
+.form-control{
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color:blue
+}

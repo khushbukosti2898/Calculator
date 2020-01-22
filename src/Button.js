@@ -16,23 +16,25 @@ class Button extends React.Component{
             op:''
         }
     }
-    getInput=(e)=>{
+    getInput = e =>{
         const {setval}=this.state;
         if (setval) {
-            this.setState({val1:(this.state.val1+e.target.value)});
+            this.setState({val1:(this.state.val1+e.target.value),
+            });
         } else {
-            this.setState({val2:(this.state.val2+e.target.value)});
+            this.setState({val2:(this.state.val2+e.target.value),
+            });
             
         }
         
     }
-    test=(e)=>{
+    test= e => {
         this.setState({
             setval:false,
             op:e.target.value
         })
-    }
-    final=(e)=>{
+    } 
+    final= e =>{
         
         let val1=Number(this.state.val1);
         
@@ -40,47 +42,137 @@ class Button extends React.Component{
         //console.log("ans "+(val1+val2));
         
         if(this.state.op==='+')
-        this.setState({ ans:val1+val2 });
+        this.setState({ ans:" = "+Number(val1+val2) });
         else  if(this.state.op==='-')
-        this.setState({ ans:val1-val2 });
+        this.setState({ ans:" = "+Number(val1-val2) });
         else  if(this.state.op==='*')
-        this.setState({ ans:val1*val2 });
+        this.setState({ ans:" = "+Number(val1*val2) });
         else  if(this.state.op==='/')
-        this.setState({ ans:val1/val2 });
+        this.setState({ ans:" = "+Number(val1/val2) });
         console.log("ans "+this.state.ans);
         
     }
-    clear=()=>{
+    clear = () => {
         this.setState({
             val1:'',
             val2:'',
             ans:'',
             setval: true,
-            op:''
+            op:'',
+            no1:'',
+            no2:''
         })
     }
     render(){
-        console.log(this)
+        //console.log(this)
         return <div>
-            <br/>
-            
-            <button onClick={this.getInput} value="1" name="one">1</button>
-            <button onClick={this.getInput} value="2" name="two">2</button>
-            <button onClick={this.getInput} name="three" value="3">3</button><br/>
-            <button onClick={this.getInput} name="four" value="4">4</button>
-            <button onClick={this.getInput} name="five" value="5">5</button>
-            <button onClick={this.getInput} name="six" value="6">6</button><br/>
-            <button onClick={this.getInput} name="seven" value="7">7</button>
-            <button onClick={this.getInput} name="eigth" value="8">8</button>
-            <button onClick={this.getInput} name="nine" value="9">9</button><br/>
-            <button onClick={this.test} value="+" name="+">+</button>
-            <button onClick={this.test} value="-" name="-">-</button>
-            <button onClick={this.test} value="*" name="*">*</button><br/>
-            <button onClick={this.test} value="/" name="/">/</button>
-            <button onClick={this.final} value="=" name="=">=</button>
-            <button onClick={this.clear}>Clear</button><br/>
-            {/* this.state && this.state.eigth */}
-            <Display value={this.state}/>
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <Display value={this.state}/>
+                    </div>
+                </div>
+                
+                <div className="row">
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={this.getInput} value="1" name="one">
+                            1
+                        </button>
+                    </div>
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={this.getInput} value="2" name="two">
+                            2
+                        </button>
+                    </div>
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={this.getInput} name="three" value="3">
+                            3
+                        </button>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col"> 
+                        <button className="btn btn-primary" onClick={this.getInput} name="four" value="4">
+                            4
+                        </button>
+                    </div>
+                    <div className="col"> 
+                        <button className="btn btn-primary" onClick={this.getInput} name="five" value="5">
+                            5
+                        </button>
+                    </div>
+                    <div className="col"> 
+                        <button className="btn btn-primary" onClick={this.getInput} name="six" value="6">
+                            6
+                        </button>
+                     </div>
+                </div>
+
+                    <div className="row">
+                        <div className="col"> 
+                            <button className="btn btn-primary" onClick={this.getInput} name="seven" value="7">
+                                7
+                            </button>
+                        </div>
+                        <div className="col"> 
+                            <button className="btn btn-primary" onClick={this.getInput} name="eigth" value="8">
+                                8
+                            </button>
+                        </div>
+                        <div className="col">  
+                            <button className="btn btn-primary" onClick={this.getInput} name="nine" value="9">
+                                9
+                            </button>
+                        </div>
+                     </div>
+
+                <div className="row">
+                    <div className="col">   
+                        <button className="btn btn-primary" onClick={this.test} value="+" name="+">
+                            +
+                        </button>
+                    </div>
+                    <div className="col">  
+                        <button className="btn btn-primary" onClick={this.test} value="-" name="-">
+                            -
+                        </button>
+                    </div>
+                    <div className="col">  
+                        <button className="btn btn-primary" onClick={this.test} value="*" name="*">
+                            *
+                        </button>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col"> 
+                        <button className="btn btn-primary" onClick={this.getInput} value="0" name="zero">
+                            0
+                        </button>
+                    </div>
+                    <div className="col">  
+                        <button className="btn btn-primary" onClick={this.test} value="/" name="/">
+                            /
+                        </button>
+                    </div>
+                    <div className="col">   
+                        <button className="btn btn-primary btn btn-dark" onClick={this.final} 
+                        value="=" name="=">
+                                =
+                        </button>
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={this.clear}>
+                            Clear
+                        </button>
+                    </div>
+                    {/* this.state && this.state.eigth */}
+                </div>
+            </div>
          </div>
     }
 }
